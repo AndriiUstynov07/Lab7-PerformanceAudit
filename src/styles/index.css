@@ -275,6 +275,10 @@ h1, h2, h3 {
   box-shadow: var(--shadow);
   overflow: hidden;
   transition: transform 0.15s ease, box-shadow 0.15s ease;
+  /* Браузер не верстає й не малює вміст карток поза екраном (їх ~2000).
+     auto 640px — орієнтовна висота до першого рендеру, далі браузер запам'ятовує реальну. */
+  content-visibility: auto;
+  contain-intrinsic-size: auto 640px;
 }
 
 .tutor-card:hover {
