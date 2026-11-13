@@ -9,8 +9,22 @@ export const SORT_OPTIONS = [
   { value: 'name', label: 'За іменем' },
 ];
 
+// Дані репетиторів незмінні, тож рейтинг рекомендацій рахуємо один раз на об'єкт
+// і кешуємо. Раніше tutorScore (з new Date для кожного відгуку) викликався двічі
+// на кожне порівняння в sort — ~44 000 разів за одне сортування.
+const scoreCache = new WeakMap();
+
+function recommendationScore(tutor) {
+  let score = scoreCache.get(tutor);
+  if (score === undefined) {
+    score = tutorScore(tutor);
+    scoreCache.set(tutor, score);
+  }
+  return score;
+}
+
 const comparators = {
-  recommended: (a, b) => tutorScore(b) - tutorScore(a),
+  recommended: (a, b) => recommendationScore(b) - recommendationScore(a),
   'price-asc': (a, b) => a.pricePerHour - b.pricePerHour,
   'price-desc': (a, b) => b.pricePerHour - a.pricePerHour,
   experience: (a, b) => b.experienceYears - a.experienceYears,
