@@ -1,7 +1,16 @@
 import { useLayoutEffect } from 'react';
 
-function isInViewport(rect) {
-  return rect.bottom > 0 && rect.top < window.innerHeight;
+// Чи обрізаний текст біо (line-clamp), визначаємо лише читанням scrollHeight/clientHeight,
+// без тимчасового зняття класу. Спочатку всі читання, потім усі записи — так браузер
+// робить один layout, а не два forced reflow на кожну картку.
+// Результат залежить лише від ширини картки, а не від позиції скролу,
+// тому слухаємо тільки resize (і не частіше за один раз на кадр).
+function updateClamp(container) {
+  const bios = Array.from(container.querySelectorAll('.tutor-card__bio'));
+  const overflowing = bios.map((bio) => bio.scrollHeight > bio.clientHeight + 1);
+  bios.forEach((bio, i) => {
+    bio.closest('.tutor-card').classList.toggle('has-more', overflowing[i]);
+  });
 }
 
 export function useBioClamp(containerRef, deps) {
@@ -9,22 +18,17 @@ export function useBioClamp(containerRef, deps) {
     const container = containerRef.current;
     if (!container) return undefined;
 
-    const update = () => {
-      container.querySelectorAll('.tutor-card__bio').forEach((bio) => {
-        if (!isInViewport(bio.getBoundingClientRect())) return;
-        bio.classList.remove('is-clamped');
-        const fullHeight = bio.offsetHeight;
-        bio.classList.add('is-clamped');
-        bio.closest('.tutor-card').classList.toggle('has-more', fullHeight > bio.offsetHeight + 1);
-      });
-    };
+    updateClamp(container);
 
-    update();
-    window.addEventListener('scroll', update);
-    window.addEventListener('resize', update);
+    let frame = 0;
+    const onResize = () => {
+      cancelAnimationFrame(frame);
+      frame = requestAnimationFrame(() => updateClamp(container));
+    };
+    window.addEventListener('resize', onResize);
     return () => {
-      window.removeEventListener('scroll', update);
-      window.removeEventListener('resize', update);
+      cancelAnimationFrame(frame);
+      window.removeEventListener('resize', onResize);
     };
   }, deps);
 }
