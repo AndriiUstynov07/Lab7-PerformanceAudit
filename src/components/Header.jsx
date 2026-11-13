@@ -16,7 +16,18 @@ export default function Header({ favoritesCount, total }) {
         </span>
       </div>
       <div className="hero">
-        <img className="hero__image" src="/images/hero.png" alt="Учні на занятті з репетитором" />
+        {/* LCP-елемент: стиснений WebP потрібного розміру, завантажується з високим пріоритетом.
+            width/height резервують місце до завантаження (без зсуву макета). */}
+        <img
+          className="hero__image"
+          src="/images/hero-1600.webp"
+          srcSet="/images/hero-800.webp 800w, /images/hero-1600.webp 1600w"
+          sizes="100vw"
+          width="2400"
+          height="900"
+          fetchPriority="high"
+          alt="Учні на занятті з репетитором"
+        />
         <div className="hero__text">
           <h1>Знайдіть свого репетитора</h1>
           <p>
