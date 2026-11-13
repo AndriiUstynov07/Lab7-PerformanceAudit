@@ -1,0 +1,7 @@
+getVisibleTutors (recommended, без запиту)       1.25 ms
+getVisibleTutors (price-asc, без запиту)         0.52 ms
+matchesQuery x2000 ("мат")                       10.71 ms
+Filters: counts + buildSubjectOptions            0.32 ms
+EmptyState: suggestNames("матемтика")            4.50 ms
+formatPrice x2000                                0.77 ms
+useReferenceData: 3 послідовні await             0.19 ms

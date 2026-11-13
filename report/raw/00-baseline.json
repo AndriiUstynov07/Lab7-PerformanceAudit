@@ -1,0 +1,162 @@
+{
+  "stage": "00-baseline",
+  "chrome": "157.0.8103.51",
+  "date": "2026-11-13T23:50:15.886Z",
+  "scenarios": {
+    "S1": {
+      "runs": [
+        {
+          "lcp": 15432,
+          "cls": 0.715,
+          "loadLongTasks": 9671,
+          "transferredMB": 7.07
+        },
+        {
+          "lcp": 13124,
+          "cls": 0.715,
+          "loadLongTasks": 10503,
+          "transferredMB": 2.93
+        },
+        {
+          "lcp": 15384,
+          "cls": 0.715,
+          "loadLongTasks": 13349,
+          "transferredMB": 2.93
+        }
+      ],
+      "median": {
+        "lcp": 15384,
+        "cls": 0.715,
+        "loadLongTasks": 10503,
+        "transferredMB": 2.93
+      },
+      "trace": "00-baseline-S1.json.gz"
+    },
+    "S2": {
+      "runs": [
+        {
+          "longTasks": 6170,
+          "longTaskCount": 4,
+          "interaction": 312
+        },
+        {
+          "longTasks": 6353,
+          "longTaskCount": 4,
+          "interaction": 248
+        },
+        {
+          "longTasks": 5794,
+          "longTaskCount": 4,
+          "interaction": 232
+        }
+      ],
+      "median": {
+        "longTasks": 6170,
+        "longTaskCount": 4,
+        "interaction": 248
+      },
+      "trace": "00-baseline-S2.json.gz"
+    },
+    "S3": {
+      "runs": [
+        {
+          "longTasks": 2849,
+          "longTaskCount": 3,
+          "interaction": 2856,
+          "favActive": "true"
+        },
+        {
+          "longTasks": 2756,
+          "longTaskCount": 2,
+          "interaction": 2776,
+          "favActive": "true"
+        },
+        {
+          "longTasks": 2625,
+          "longTaskCount": 3,
+          "interaction": 2624,
+          "favActive": "true"
+        }
+      ],
+      "median": {
+        "longTasks": 2756,
+        "longTaskCount": 3,
+        "interaction": 2776
+      },
+      "trace": "00-baseline-S3.json.gz"
+    },
+    "S4": {
+      "runs": [
+        {
+          "longTasks": 5832,
+          "longTaskCount": 15,
+          "interaction": 0,
+          "forced": 78,
+          "layouts": 79,
+          "layoutMs": 3281
+        },
+        {
+          "longTasks": 6465,
+          "longTaskCount": 15,
+          "interaction": 0,
+          "forced": 78,
+          "layouts": 79,
+          "layoutMs": 3722
+        },
+        {
+          "longTasks": 6407,
+          "longTaskCount": 16,
+          "interaction": 0,
+          "forced": 78,
+          "layouts": 79,
+          "layoutMs": 3563
+        }
+      ],
+      "median": {
+        "longTasks": 6407,
+        "longTaskCount": 15,
+        "interaction": 0,
+        "forced": 78,
+        "layouts": 79,
+        "layoutMs": 3563
+      },
+      "trace": "00-baseline-S4.json.gz"
+    }
+  },
+  "lighthouse": {
+    "runs": [
+      {
+        "score": 67,
+        "lcp": 758,
+        "tbt": 1256,
+        "cls": 0,
+        "fcp": 208,
+        "bytesMB": 21.95
+      },
+      {
+        "score": 65,
+        "lcp": 906,
+        "tbt": 1478,
+        "cls": 0,
+        "fcp": 211,
+        "bytesMB": 21.95
+      },
+      {
+        "score": 65,
+        "lcp": 879,
+        "tbt": 1512,
+        "cls": 0,
+        "fcp": 210,
+        "bytesMB": 21.95
+      }
+    ],
+    "median": {
+      "score": 65,
+      "lcp": 879,
+      "tbt": 1478,
+      "cls": 0,
+      "fcp": 210,
+      "bytesMB": 21.95
+    }
+  }
+}

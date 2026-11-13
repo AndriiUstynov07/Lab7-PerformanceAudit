@@ -1,0 +1,162 @@
+{
+  "stage": "01",
+  "chrome": "157.0.8103.51",
+  "date": "2026-11-13T23:56:16.975Z",
+  "scenarios": {
+    "S1": {
+      "runs": [
+        {
+          "lcp": 18504,
+          "cls": 0.715,
+          "loadLongTasks": 12606,
+          "transferredMB": 7.07
+        },
+        {
+          "lcp": 17148,
+          "cls": 0.715,
+          "loadLongTasks": 14774,
+          "transferredMB": 2.93
+        },
+        {
+          "lcp": 14696,
+          "cls": 0.715,
+          "loadLongTasks": 11974,
+          "transferredMB": 2.93
+        }
+      ],
+      "median": {
+        "lcp": 17148,
+        "cls": 0.715,
+        "loadLongTasks": 12606,
+        "transferredMB": 2.93
+      },
+      "trace": "01-S1.json.gz"
+    },
+    "S2": {
+      "runs": [
+        {
+          "longTasks": 3390,
+          "longTaskCount": 4,
+          "interaction": 232
+        },
+        {
+          "longTasks": 5131,
+          "longTaskCount": 4,
+          "interaction": 312
+        },
+        {
+          "longTasks": 4511,
+          "longTaskCount": 4,
+          "interaction": 288
+        }
+      ],
+      "median": {
+        "longTasks": 4511,
+        "longTaskCount": 4,
+        "interaction": 288
+      },
+      "trace": "01-S2.json.gz"
+    },
+    "S3": {
+      "runs": [
+        {
+          "longTasks": 1399,
+          "longTaskCount": 2,
+          "interaction": 1424,
+          "favActive": "true"
+        },
+        {
+          "longTasks": 1445,
+          "longTaskCount": 3,
+          "interaction": 1360,
+          "favActive": "true"
+        },
+        {
+          "longTasks": 1224,
+          "longTaskCount": 3,
+          "interaction": 1240,
+          "favActive": "true"
+        }
+      ],
+      "median": {
+        "longTasks": 1399,
+        "longTaskCount": 3,
+        "interaction": 1360
+      },
+      "trace": "01-S3.json.gz"
+    },
+    "S4": {
+      "runs": [
+        {
+          "longTasks": 5655,
+          "longTaskCount": 16,
+          "interaction": 0,
+          "forced": 78,
+          "layouts": 79,
+          "layoutMs": 3008
+        },
+        {
+          "longTasks": 5591,
+          "longTaskCount": 15,
+          "interaction": 0,
+          "forced": 78,
+          "layouts": 79,
+          "layoutMs": 3087
+        },
+        {
+          "longTasks": 5841,
+          "longTaskCount": 16,
+          "interaction": 0,
+          "forced": 78,
+          "layouts": 79,
+          "layoutMs": 3190
+        }
+      ],
+      "median": {
+        "longTasks": 5655,
+        "longTaskCount": 16,
+        "interaction": 0,
+        "forced": 78,
+        "layouts": 79,
+        "layoutMs": 3087
+      },
+      "trace": "01-S4.json.gz"
+    }
+  },
+  "lighthouse": {
+    "runs": [
+      {
+        "score": 69,
+        "lcp": 700,
+        "tbt": 1009,
+        "cls": 0,
+        "fcp": 207,
+        "bytesMB": 21.95
+      },
+      {
+        "score": 69,
+        "lcp": 700,
+        "tbt": 1051,
+        "cls": 0,
+        "fcp": 207,
+        "bytesMB": 21.95
+      },
+      {
+        "score": 70,
+        "lcp": 732,
+        "tbt": 940,
+        "cls": 0,
+        "fcp": 208,
+        "bytesMB": 21.95
+      }
+    ],
+    "median": {
+      "score": 69,
+      "lcp": 700,
+      "tbt": 1009,
+      "cls": 0,
+      "fcp": 207,
+      "bytesMB": 21.95
+    }
+  }
+}
