@@ -1,9 +1,13 @@
+// Створення Intl.NumberFormat дороге (завантаження локалі, парсинг опцій),
+// тому форматер створюємо один раз, а не на кожну картку при кожному рендері.
+const priceFormatter = new Intl.NumberFormat('uk-UA', {
+  style: 'currency',
+  currency: 'UAH',
+  maximumFractionDigits: 0,
+});
+
 export function formatPrice(value) {
-  return new Intl.NumberFormat('uk-UA', {
-    style: 'currency',
-    currency: 'UAH',
-    maximumFractionDigits: 0,
-  }).format(value);
+  return priceFormatter.format(value);
 }
 
 export function pluralize(count, one, few, many) {
