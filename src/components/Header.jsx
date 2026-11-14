@@ -25,7 +25,7 @@ export default function Header({ favoritesCount, total }) {
           sizes="100vw"
           width="2400"
           height="900"
-          fetchPriority="high"
+          fetchpriority="high"
           alt="Учні на занятті з репетитором"
         />
         <div className="hero__text">
